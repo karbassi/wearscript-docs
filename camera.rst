@@ -12,8 +12,8 @@ cameraOn(double imagePeriod, [int maxHeight, int maxWidth, Function callback]) :
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
-	WS.cameraOn(.5, 180, 320, function (x) {
-	    document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + x);
+	WS.cameraOn(.5, 180, 320, function(data) {
+	    document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + data);
 	});
     }
     window.onload = main;
@@ -30,8 +30,8 @@ cameraOff() : void
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
-	WS.cameraOn(.5, 180, 320, function (x) {
-	    document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + x);
+	WS.cameraOn(.5, 180, 320, function(data) {
+	    document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + data);
 	});
 	setTimeout(function () {
 	    WS.cameraOff();
@@ -53,8 +53,8 @@ cameraPhoto([Function callback]) : void
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
-	WS.cameraPhoto(function (x) {
-	    document.getElementById('image').setAttribute('src', 'file://' + x);
+	WS.cameraPhoto(function(location) {
+	    document.getElementById('image').setAttribute('src', 'file://' + location);
 	});
     }
     window.onload = main;
@@ -72,8 +72,8 @@ cameraPhotoData([Function callback]) : void
     <script>
     function main() {
 	if (WS.scriptVersion(1)) return;
-	WS.cameraPhotoData(function (x) {
-	    document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + x);
+	WS.cameraPhotoData(function(data) {
+	    document.getElementById('image').setAttribute('src', 'data:image/jpg;base64,' + data);
 	});
     }
     window.onload = main;
@@ -89,8 +89,8 @@ cameraVideo([Function callback]) : void
     <script>
     function main() {
         if (WS.scriptVersion(1)) return;
-        WS.cameraVideo(function (x) {
-            WS.log(x);
+        WS.cameraVideo(function (location) {
+            WS.log(location);
         });
     }
     window.onload = main;
