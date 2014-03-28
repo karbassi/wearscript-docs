@@ -6,7 +6,7 @@ sensorOff(int type) : void
 
 
 sensorOn(String type, double period, [Function callback]) : void
-     Turn on the sensor and produce data no faster than the specific period.
+     Turn on the sensor and produce data no faster than the specific period (in seconds).
      Optional callback name that is called at most once per period of the form `function callback(data)` with data being an object with the properties:
 
      :name(string): Unique sensor name (uses Android name if one exists)
